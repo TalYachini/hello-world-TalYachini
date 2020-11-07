@@ -3,18 +3,54 @@
 <head>
     <title></title>
 </head>
-<body>
-     <header style = "height:100px ; background-color: rgb(153, 202, 255); font-size: 100px;
-      text-align: center; padding: 10px;">Contact Me</header>
+<body style ="font-family:Tahoma">
+     <header style = "height:100px ; background-color: rgb(255, 204, 204); color:white;
+     border: 5px solid tomato; font-size: 80px; text-align: center; padding: 15px ; font-weight: bold">Apply for your next challenge</header>
         <from>
-            <p>Please fill out the from and we will contact you soon</p>
-            <lable for="FullName">Your Name</lable>
-            <input type="text" id="FullName" name="FullName">
+            <p>Please fill your personal details and we will contact you soon:</p>
+            <br>
+            <lable  for="FirstName">First Name</lable>
+            <input type="text" id="FirstName" name="FirstName" required>
+
+            <lable for="LastName">Last Name</lable>
+            <input type="text" id="LastName" name="LastName" required>
             <br><br>
-            <lable for="Comment"></lable>
+            <lable for="Email" >Email Address</lable>
+            <input type="email" id="Email" name="Email" required>
+            <br><br>
+            <lable for="BDate">Date of Birth</lable>
+            <input type="date" id="BDate" name="BDate">
+            <br><br>
+
+            <p>Gender:</p>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label><br>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label><br>
+            <input type="radio" id="other" name="gender" value="other">
+            <label for="other">Other</label>
+            <br><br>
+
+            <p>How did you hear about us:</p>
+            <input type="radio" id="Friend" name="option1" value="option1" checked>
+            <label for="Friend">From A friend</label> <br>
+            <input type="radio" id="LinkedIn" name="option2" value="option2">
+            <label for="LinkedIn">LinkedIn</label><br>
+            <input type="radio" id="Other Way" name="option3" value="other3">
+            <label for="Other Way">Other</label><br>
+
+            <br><br>
+            <lable for="Comment">Why do you want to work in our company?</lable>
+            <br>
             <textarea id="Comment" cols="50" rows="5"></textarea>
-            <input type="submit">
+            <input type="submit" value="Submit">
             <br><br>
+            <lable for="CV">Upload your CV (PDF/Word)</lable>
+            <input type="file" id="CV" name="CV" required>
+            <br><br>
+            <input type="Button" value="Apply now" style="background-color:darkblue; color: white ;
+            height = 100px; width:300px; font-size:30px ">
+
         </from>
 </body>
 </html>
