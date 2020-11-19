@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HW5 - JS Practice</title>
+    <script>
+        function function1Plus1(){
+                document.getElementById("P1").innerHTML= "1+1 = 2";
+            }
+    </script>
+</head>
+<body>
+    <p id ="P1">How much is 1+1 ?</p>
+        <button type = "button" onclick="function1Plus1()">Click to see the answer</button>
+
+    <br>
+    <p id="P2"></p>
+    <script>
+       var NameOfProgrammer = "Tal Yachini"
+        document.getElementById("P2").innerHTML = "My Name is " + NameOfProgrammer;
+    </script>
+
+    <br>
+    <p id="P3"></p>
+    <script>
+        function functionMult (a,b){
+                return  "The result of " + a + "*" + b + " is "  +  a*b;
+        }
+        document.getElementById("P3").innerHTML= functionMult(5,9);
+    </script>
+
+    <br>
+    <button onclick="document.getElementById('Pikachu').src='Pikachu.jpg'">Click to see me HAPPY</button>
+    <img id= "Pikachu" alt="" src="Pikachu angry.jpg" width=20%>
+    <button onclick="MakePikaAngry()">Click to see me ANGRY</button>
+    <script>
+        function MakePikaAngry(){
+            document.getElementById("Pikachu").src= "Pikachu angry.jpg";
+        }
+    </script>
+</body>
+</html>
