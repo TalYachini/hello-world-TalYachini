@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tal Yachini CV</title>
+     <link rel ="stylesheet" href="cssCV.css" >
+     <link rel = "stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <script src="ScriptCV.js"></script>
+</head>
+    <body>
+            <div class="grid-container">
+
+                <div class="Header">
+                    <img src="Tal_Yachini.jpg.jpg" alt = "Picture of Tal Yachini" width = 120px >
+                    <div class = "text">
+                        <h1>Tal Yachini</h1>
+                        <h3>Campaign Manager at Pandologic || 4th Year Industrial Engineering Student </h3>
+                    </div>
+                </div>
+
+            <div class="Personal_details">
+
+                    <div class="text">
+                        <p><b>Contact</b></p>
+                        <i class="fa fa-mobile-phone" style="font-size:36px;" ></i>
+                        <a>+972-54-432-4465</a><br>
+                        <i class="material-icons" style="font-size:20px;" >email</i>
+                        <a>yachini@post.bgu.ac.il</a><br>
+
+                        <i class="fa fa-facebook-official" style="font-size:20px;" ></i>
+                        <a href = "https://www.facebook.com/tal.yachini/" target="_blank" > facebook.com/tal.yachini/ </a> <br>
+
+                        <i class="fa fa-linkedin-square" style="font-size:20px;"></i>
+                        <a href = "https://www.linkedin.com/in/tal-yachini-2b0534196/" target="_blank" > linkedin.com/in/tal-yachini </a> <br>
+                    </div>
+
+
+                <hr>
+                <p><b>Skills</b></p>
+                <div class = "text">
+                    <i class = "fa fa-keyboard-o" style = "font-size:24px;"></i>
+                    <a style="font-size: medium"><b>Programming</b></a>
+                    <ul>
+                        <li onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">Java, Microsoft SQL Server, R, Python</li>
+                        <li onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">HTML, CSS, JavaScript</li>
+                        <li onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">PowerBI, Tableau</li>
+                    </ul>
+                </div>
+                <div class = "text">
+                    <i class="material-icons" style="font-size:20px;" > language </i>
+                    <a style="font-size: medium"><b>languages</b></a>
+                    <ul>
+                        <li onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">Hebrew</li>
+                        <li onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">English</li>
+                        <li onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">German</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div id ="form" class="Contact_Me">
+
+                <form id="ContactForm">
+                    <p><i><b>Leave your details for further contact:</b></i></p>
+                    <lable for="Name">Your Full Name</lable>
+                    <input type="text" id="Name" name="Name" required>
+                    <br>
+                    <lable for="Email" >Your Email Address</lable>
+                    <input type="email" id="Email" name="Email" required>
+                    <br>
+                    <input type="submit" value="Submit" onclick="SubmitContact()">
+                </form>
+
+            </div>
+
+            <div class="CV_details">
+                <i class="material-icons" style="font-size:20px;" >school</i>
+                <a><b>Education</b></a>
+                <ul>
+                    <li>2017 - Present: Industrial and management engineering student || Ben Gurion University of the Negev </li>
+                    <li>2016: Foreign language student || Deutsch Akademie, Berlin</li>
+                    <li>2008 - 2012: High School Diploma || Shimon Ben Zvi High School, Givatayim </li>
+                </ul>
+                <br>
+                <i class="material-icons" style="font-size:20px;" >work</i>
+                <a><b>Work Experience</b></a>
+                <ul>
+                    <li>2020 - PRESENT: Campaign Manager || Pandologic </li>
+                    <li>2019 - 2020: Teacher in children's programing courses || Leaplearner Israel</li>
+                    <li>2018: Office Manager || BIG IDEA- Israeli summer camp </li>
+                </ul>
+                <br>
+                <i class="material-icons" style="font-size:20px;" >airplanemode_active</i>
+                <a><b>Military Service</b></a>
+                <p>Air Traffic Controller || Israeli Air Force (IDF)<br>
+                2012-2015</p>
+
+                <i class="fa fa-hashtag" style="font-size:20px;" ></i>
+                <a><b>Other</b></a>
+                <p>BIPA - Bavaria Israel Partnership Accelerator || Tech7<br>
+                2019</p>
+
+                <hr>
+                <i class="fa fa-download" style="font-size:48px; color: darkred" ></i>
+                <br>
+                <a> <b>Click</b> </a>
+                <a href="Tal%20Yachini%20CV.pdf"  style="font-size: larger;" download>Here</a>
+                <a><b>To Download PDF</b></a>
+
+            </div>
+
+        </div>
+
+    </body>
+</html>
