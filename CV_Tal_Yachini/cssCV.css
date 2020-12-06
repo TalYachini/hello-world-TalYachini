@@ -1,0 +1,70 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 400px 400px 400px;
+    grid-template-rows: 120px 120px 120px 120px 120px;
+    grid-gap: 20px;
+    padding: 20px;
+    align-content: center;
+    background-color: cadetblue;
+}
+
+.Header{
+    grid-column: 1/ span 3;
+    grid-row: 1/ span 1;
+    font-family: Calibri;
+    padding : 10px;
+
+}
+
+.Header, img{
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.text{
+    display: inline-block;
+    background-color: transparent;
+    vertical-align: top;
+}
+
+.Personal_details {
+    grid-column: 1/ span 1;
+    grid-row: 2/ span 3;
+    font-family: "Calibri Light";
+    padding: 10px;
+    line-height: 1.8;
+    align-content: center;
+}
+.Personal_details:hover{
+    background-color: rgb(250,248,220,0.7);
+}
+.Contact_Me{
+    grid-column: 1/ span 1;
+    grid-row: 5/ span 1;
+    font-family: "Calibri Light";
+    font-size: 15px;
+    padding: 5px;
+    align-content: center;
+    position: center;
+
+}
+.Contact_Me:hover{
+    background-color: rgb(250,248,220,0.7);
+}
+
+.CV_details {
+    grid-column: 2/ span 2;
+    grid-row: 2/ span 5;
+    font-family: "Calibri Light";
+    padding: 10px;
+}
+
+.CV_details:hover{
+    background-color: rgb(250,248,220,0.7);
+}
+
+div > div{
+    background-color: rgb(255,255,255,0.5);
+}
+
+
