@@ -2,16 +2,20 @@
 <html>
 <head>
     <title>Tal Yachini CV</title>
-     <link rel ="stylesheet" href="cssCV.css" >
+    <link rel="stylesheet" href="{{ url_for('static' , filename = 'css/cssCV.css') }}">
+{#     <link rel ="stylesheet" href="cssCV.css" >#}
+{#    <link rel = "stylesheet" href="{{ url_for('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css') }}">#}
      <link rel = "stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-     <script src="ScriptCV.js"></script>
+{#     <script src="ScriptCV.js"></script>#}
+    <script src="{{ url_for('static', filename = 'JS/ScriptCV.js') }}"></script>
 </head>
     <body>
             <div class="grid-container">
 
                 <div class="Header">
-                    <img src="Tal_Yachini.jpg.jpg" alt = "Picture of Tal Yachini" width = 120px >
+{#                    <img src="static/img/Tal_Yachini.jpg.jpg" alt = "Picture of Tal Yachini" width = 120px >#}
+                    <img src="{{ url_for('static',filename='img/Tal_Yachini.jpg.jpg') }}" alt = "Picture of Tal Yachini" width = 120px >
                     <div class = "text">
                         <h1>Tal Yachini</h1>
                         <h3>Campaign Manager at Pandologic || 4th Year Industrial Engineering Student </h3>
@@ -32,6 +36,12 @@
 
                         <i class="fa fa-linkedin-square" style="font-size:20px;"></i>
                         <a href = "https://www.linkedin.com/in/tal-yachini-2b0534196/" target="_blank" > linkedin.com/in/tal-yachini </a> <br>
+
+                        <i class = "fa fa-address-card" style = "font-size:20px;"></i>
+{#                        <a href = "LIST_USERS.html" target="_blank">Contact List</a>#}
+                        <a href = "{{ url_for('My_Users_List')}}" target="_blank">Contact List</a><br>
+                        <i class = "fa fa-thumbs-o-up" style = "font-size:20px;" ></i>
+                        <a href="{{ url_for('My_Hobbies') }}" style="background-color: hotpink">Click Here To See My Hobbies</a>
                     </div>
 
 
@@ -104,7 +114,8 @@
                 <i class="fa fa-download" style="font-size:48px; color: darkred" ></i>
                 <br>
                 <a> <b>Click</b> </a>
-                <a href="Tal%20Yachini%20CV.pdf"  style="font-size: larger;" download>Here</a>
+                <a href="{{ url_for('static', filename = 'Tal Yachini CV.pdf') }}"  style="font-size: larger;" download>Here</a>
+{#                <a href="Tal%20Yachini%20CV.pdf"  style="font-size: larger;" download>Here</a>#}
                 <a><b>To Download PDF</b></a>
 
             </div>

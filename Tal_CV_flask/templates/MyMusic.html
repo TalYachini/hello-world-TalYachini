@@ -1,0 +1,18 @@
+{% extends 'assignment8.html' %}
+
+{% block content %}
+
+        {% set page_header = "my music" %}
+        <h1>{{ page_header | lower }}</h1>
+
+        <ul>
+            {% for band,song in FaveMusic.items() %}
+                <li>{{ band }} : {{ song }}</li>
+                <br>
+            {%  endfor %}
+        </ul>
+
+        <i class = "fa fa-thumbs-o-up" style = "font-size:20px;" ></i>
+        <a href="{{ url_for('My_Hobbies') }}" style="background-color: lightskyblue">Back To Hobbies</a>
+
+{%  endblock %}

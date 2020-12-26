@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tal Yachini's Hobbies</title>
+</head>
+<body>
+        {% include ('header.html') %}
+
+        <div style="font-family: Calibri">
+            {% block content %}
+                {% set page_header = "my hobbies" %}
+                <h1>{{ page_header | upper }}</h1>
+                {%  if hobbies %}
+                    <ol>
+                        {% for hobby in hobbies %}
+                            <li><b>{{ hobby }}</b></li>
+                        {% endfor %}
+                    </ol>
+                {% else %}
+                    <h3>I have no hobbies</h3>
+                {% endif %}
+                <i class = "fa fa-music" style = "font-size:20px;" ></i>
+                <a href="{{ url_for('MyMusic') }}" style="background-color: lightskyblue">Click Here To See My Favorite Music</a>
+            {%  endblock %}
+
+        </div>
+        <i class = "fa fa-wpforms" style = "font-size:20px;" ></i>
+        <a href="{{ url_for('Tal_CV') }}" style="background-color: lightskyblue">Back To Tal's CV</a>
+        {% include ('footer.html') %}
+</body>
+</html>
