@@ -6,6 +6,12 @@
         <div style="display: inline-block  ;padding: 10px; vertical-align:middle; background-color: transparent" >
             <h1>Tal Yachini</h1>
             <h3>Campaign Manager at Pandologic || 4th Year Industrial Engineering Student </h3>
+        </div >
+
+        <div style="display: inline-block ; float: right ; padding: 10px">
+            {% if session.get('user_reg') !=None %}
+                <h3> Logged in user: {{ session.get('user_reg') }} </h3>
+            {% endif %}
         </div>
     </div>
 </header>
