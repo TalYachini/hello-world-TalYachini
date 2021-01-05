@@ -5,10 +5,11 @@
     <title>assignment9</title>
 </head>
 <body>
-    <h3>Search Form</h3>
-    <form method="GET" action="/assignment9">
+<div style="font-family: Calibri">
+    <h3 style=" background-color: darkcyan; color: white; width: 10%">Users Search</h3>
+    <form method="GET" action="/assignment9" >
         <input type = "text" name = "user_search" placeholder="Enter User Detail" >
-        <input type="submit" value = "Search">
+        <input type="submit" value = "Search" style="background-color: darkcyan">
     </form>
 
     {% if user_search != None %}
@@ -16,7 +17,7 @@
             <h3>You entered an empty search, these are all users options: </h3>
                 {% for user in user_list %}
                     {% for key,value in user.items() %}
-                        <li>{{ key }} : {{ value }}</li>
+                        <li><b>{{ key }}</b> : {{ value }}</li>
                         <br>
                     {%  endfor %}
                     <br>
@@ -36,17 +37,19 @@
 
     {% endif %}
 
-    {% if session.get('user_reg') == None %}
-    <h3>Registration Form</h3>
-    <form method="POST" action="/assignment9">
-        <input name = "user_reg" placeholder="Enter Your Nickname" >
-        <input  type="submit" name="logout" value = "Register">
-    </form>
+    {% if session.get('user_reg') == None or session.get('user_reg') =='' %}
+        <h3 style="font-family: Calibri; background-color: cornflowerblue; color: white; width: 10%">Registration</h3>
+        <form method="POST" action="/assignment9" >
+            <input name = "user_reg" placeholder="Enter Your Nickname" >
+            <input  type="submit" name="logout" value = "Register" style="background-color: cornflowerblue">
+        </form>
 
     {% else %}
         <h3> Logged in user: {{ session.get('user_reg') }} </h3>
         <a href="logout"><button>Logout</button></a>
     {% endif %}
+
+</div>
 
 
 </body>

@@ -48,8 +48,9 @@ def assignment9_func1():
                 empty_search = True
 
 
-    return render_template('/assignment9.html', user_search = user_search, user_exist=user_exist, userFound=userFound, empty_search=empty_search, user_list = user_list
-                           ,user_reg = user_reg)
+    return render_template('/assignment9.html', user_search = user_search, user_exist=user_exist,
+                           userFound=userFound, empty_search=empty_search, user_list = user_list,
+                           user_reg = user_reg)
 
 
 
