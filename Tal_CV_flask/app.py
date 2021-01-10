@@ -1,10 +1,22 @@
-from flask import Flask,redirect,url_for, render_template,request, session
+
+from flask import Flask,redirect,url_for, render_template,request, session,Blueprint
+import mysql
+from mysql import connector
+
+
+import pkgutil
+import sys
+
+
 
 app = Flask(__name__)
 app.secret_key = '123'
 user_list = [{'First Name': 'Tal', 'Last Name': 'Yachini', 'Email': 'yachini@post.bgu.ac.il'}
     , {'First Name': 'Or', 'Last Name': 'Hadar', 'Email': 'orhadar24@gmail.com'}
     , {'First Name': 'Boaz', 'Last Name': 'Kishoni', 'Email': 'boazki@post.bgu.ac.il'}]
+
+from pages.assignment10.assignment10 import assignment10
+app.register_blueprint(assignment10)
 
 @app.route('/')
 def Tal_CV():
@@ -69,6 +81,61 @@ def sign_out():
     session.pop('user_reg',None)
 
     return redirect(url_for("assignment9_func1"))
+
+
+def interact_db(query,query_type:str):
+    return_value = False
+    connection = mysql.connector.connect(host='localhost',
+                                         user = 'root',
+                                         passwd = 'root',
+                                         database = 'myflaskappdb')
+
+    cursor = connection.cursor (named_tuple = True)
+    cursor.execute(query)
+
+    if query_type == 'commit':
+        connection.commit()
+        return_value = True
+
+    if query_type == 'fetch':
+        query_result = cursor.fetchall()
+        return_value = query_result
+
+    connection.close()
+    cursor.close()
+    return return_value
+
+# -----------------------------------------------------
+
+@app.route('/users')
+def users():
+    query = "select * from users"
+    query_result = interact_db(query=query, query_type='fetch')
+    return render_template('users.html', users = query_result)
+
+# -----------------------------------------------------
+@app.route('/insert_user', methods=['GET', 'POST'])
+def insert_user():
+    if request.method == 'POST':
+        first_name = request.form['First Name']
+        last_name = request.form['Last Name']
+        email = request.form['Email']
+        password = request.form['Password']
+        query = "INSERT INTO users(first_name,last_name,email,password) VALUES ('%s','%s','%s','%s')" % (first_name, last_name, email, password)
+        interact_db(query = query, query_type='commit')
+        return redirect('/users')
+    return render_template('insert_user.html', req_method = request.method)
+
+# ----------------------------------------------------
+@app.route('/delete_user', methods=['GET', 'POST'])
+def delete_user():
+    if request.method == 'GET':
+        user_id = request.args.get('id')
+        query = "DELETE FROM users WHERE id ='%s';" % user_id
+        interact_db( query=query, query_type='commit')
+        return redirect('/users')
+
+    return 'deleted user'
 
 if __name__ == '__main__':
     app.run(debug=True)

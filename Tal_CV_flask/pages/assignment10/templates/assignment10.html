@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>assignment10</title>
+</head>
+<body>
+    <div style="font-family: Calibri; background-color: cadetblue; padding: 20px">
+        <h1>Insertion form</h1>
+        <form action="/insert_user" method="POST" onsubmit="alert('The users table has been updated');">
+            <label for="first_name">First Name:</label>
+            <br>
+            <input name = "First Name" id="first_name" required>
+            <br>
+            <label for="last_name">Last Name:</label>
+            <br>
+            <input name = "Last Name" id="last_name" required>
+            <br>
+            <label for="email">Email:</label>
+            <br>
+            <input name = "Email" id="email" type="email" required>
+            <br>
+            <label for="pass">Password:</label>
+            <br>
+            <input name = "Password" id="pass" type="password" required>
+            <br>
+            <br>
+            <button type="submit" id="insertUser">Insert The New User</button>
+        </form>
+
+        <h1>Update form</h1>
+            <form action="/update_row" method="POST" onsubmit="alert('The user details have been updated');">
+                <label for="idToUpdate">ID To Update:</label>
+                <br>
+                <input name = "ID To Update" id="idToUpdate"  required>
+                <br>
+                <label for="first_name">First Name:</label>
+                <br>
+                <input name = "First Name" id="first_name" >
+                <br>
+                <label for="last_name">Last Name:</label>
+                <br>
+                <input name = "Last Name" id="last_name" >
+                <br>
+                <label for="email">Email:</label>
+                <br>
+                <input name = "Email" id="email" type="email" >
+                <br>
+                <label for="pass">Password:</label>
+                <br>
+                <input name = "Password" id="pass" type="password" >
+                <br>
+                <br>
+                <button type="submit" id="insertUser">Update</button>
+            </form>
+
+
+
+
+        <h1>Deletion form</h1>
+        <h4>Insert a user id to delete</h4>
+            <form action ="/delete_user" method="GET" onsubmit="alert('The user has been deleted');">
+                User ID: <label> <input name="id" type="text"> </label>
+                <input type="submit" value="Delete User">
+            </form>
+
+        <h1>List of users</h1>
+            <ul>
+            {% if users %}
+                {% for user in users %}
+                    <li>
+                    {{ user.id }}: <b>{{ user.first_name }} {{ user.last_name }}</b> ({{ user.email }})
+                    </li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+    </div>
+</body>
+</html>
