@@ -2,7 +2,7 @@
 from flask import Flask,redirect,url_for, render_template,request, session,Blueprint
 import mysql
 from mysql import connector
-
+from flask import jsonify
 
 import pkgutil
 import sys
@@ -136,6 +136,40 @@ def delete_user():
         return redirect('/users')
 
     return 'deleted user'
+
+@app.route('/assignment11/users')
+def get_users():
+    if request.method == "GET":
+        query = "select * from users"
+        query_result = interact_db(query=query, query_type='fetch')
+    if (len(query_result) == 0):
+        return jsonify({
+            'success': 'False',
+            'Error': 'There is no users data'
+        })
+    else:
+        return jsonify({
+            'success': 'True',
+            'data': query_result
+        })
+
+@app.route('/assignment11/users/selected/', defaults={'SOME_USER_ID': 00})
+@app.route('/assignment11/users/selected/<int:SOME_USER_ID>')
+def get_user_by_id(SOME_USER_ID):
+    if request.method == "GET":
+        query = "SELECT * FROM users WHERE id ='%s'" % SOME_USER_ID
+        query_result = interact_db(query=query, query_type= 'fetch')
+        if (len(query_result)== 0):
+            return jsonify({
+                'success': 'False',
+                'Error': 'User does not exist'
+            })
+        else:
+            return jsonify({
+                'success': 'True',
+                'data': query_result[0]
+            })
+
 
 if __name__ == '__main__':
     app.run(debug=True)
