@@ -140,7 +140,7 @@ def delete_user():
 @app.route('/assignment11/users')
 def get_users():
     if request.method == "GET":
-        query = "select * from users"
+        query = "SELECT id,first_name,last_name,email FROM users"
         query_result = interact_db(query=query, query_type='fetch')
     if (len(query_result) == 0):
         return jsonify({
@@ -157,19 +157,20 @@ def get_users():
 @app.route('/assignment11/users/selected/<int:SOME_USER_ID>')
 def get_user_by_id(SOME_USER_ID):
     if request.method == "GET":
-        query = "SELECT * FROM users WHERE id ='%s'" % SOME_USER_ID
+        query = "SELECT id,first_name,last_name,email FROM users WHERE id ='%s'" % SOME_USER_ID
         query_result = interact_db(query=query, query_type= 'fetch')
         if (len(query_result)== 0):
             return jsonify({
                 'success': 'False',
-                'Error': 'User does not exist'
+                'Error': 'User does not exist',
+                'Default User ID': SOME_USER_ID
             })
         else:
             return jsonify({
                 'success': 'True',
-                'data': query_result[0]
-            })
+                'data': query_result[0],
 
+            })
 
 if __name__ == '__main__':
     app.run(debug=True)
